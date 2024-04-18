@@ -9,6 +9,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,13 +27,14 @@ public class Evenement {
 	Long id;
 	String nom;
 	String description;
+	@Temporal(TemporalType.DATE)
 	Date dateEvenement;
 	boolean accepted=false;
 	boolean consulte = false;
 	@ManyToOne
 	Club club;
-	@OneToMany(mappedBy = "evenement")
+	@OneToMany
 	List<Materiel> materiels;
-	@OneToMany(mappedBy = "evenement")
+	@OneToMany
 	List<Salle> salles;
 }

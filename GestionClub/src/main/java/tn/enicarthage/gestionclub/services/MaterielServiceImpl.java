@@ -12,13 +12,13 @@ import tn.enicarthage.gestionclub.repositories.EvenementRepository;
 import tn.enicarthage.gestionclub.repositories.MaterielRepository;
 
 @Service
-public class MaterielServiceImpl {
+public class MaterielServiceImpl implements IMaterielService{
 	@Autowired
     private MaterielRepository materielRepository;
 
     @Autowired
     private EvenementRepository evenementRepository;
-
+    
     public int calculateAvailableMaterial(Long materielId, Date date) {
 
         List<Evenement> eventsOnDate = evenementRepository.findByDateEvenement(date);

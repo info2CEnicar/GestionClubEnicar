@@ -8,6 +8,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,8 +25,10 @@ public class Club {
 	Long id;
 	String nom;
 	String description;
+	String type;
+	String image;
 	@OneToMany(mappedBy = "club")
 	List<Evenement> evenements;
-	@ManyToOne
+	@OneToOne
 	ResponsableClub responsableClub;
 }

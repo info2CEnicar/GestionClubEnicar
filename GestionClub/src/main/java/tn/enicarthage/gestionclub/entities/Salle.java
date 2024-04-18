@@ -22,6 +22,4 @@ public class Salle {
 	String nom;
 	String locale;
 	Boolean disponibilite;
-	@ManyToOne
-	Evenement evenement;
 }

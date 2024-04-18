@@ -18,12 +18,11 @@ import lombok.experimental.FieldDefaults;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @AllArgsConstructor
+@NoArgsConstructor
 public class Materiel {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
 	String nom;
 	int quantiteDemande;
-	final int quantiteDisponible;
-	@ManyToOne
-	Evenement evenement;
+	int quantiteDisponible;
 }

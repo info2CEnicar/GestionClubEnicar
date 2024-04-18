@@ -9,5 +9,5 @@ import tn.enicarthage.gestionclub.entities.Admin;
 @RepositoryRestResource
 @CrossOrigin("*")
 public interface AdminRepository extends JpaRepository<Admin, Long>{
-
+	
 }

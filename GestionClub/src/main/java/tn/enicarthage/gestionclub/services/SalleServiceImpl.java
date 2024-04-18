@@ -14,23 +14,26 @@ import tn.enicarthage.gestionclub.repositories.SalleRepository;
 
 @Service
 public class SalleServiceImpl implements ISalleService{
-	@Autowired
+
+    @Autowired
     private SalleRepository salleRepository;
 
     @Autowired
     private EvenementRepository evenementRepository;
 
+    // Method to get available salles for a given date
     public List<Salle> getAvailableSalles(Date date) {
-    	
+        // Fetch all events on the given date
         List<Evenement> eventsOnDate = evenementRepository.findByDateEvenement(date);
         
+        // Collect all salle IDs from these events (assume all are unavailable)
         List<Long> unavailableSalleIds = eventsOnDate.stream()
             .flatMap(event -> event.getSalles().stream())
-            .filter(salle -> !salle.getDisponibilite())
             .map(Salle::getId)
             .distinct()
             .collect(Collectors.toList());
 
+        // Fetch all salles and remove the unavailable ones
         List<Salle> allSalles = salleRepository.findAll();
         return allSalles.stream()
             .filter(salle -> !unavailableSalleIds.contains(salle.getId()))
