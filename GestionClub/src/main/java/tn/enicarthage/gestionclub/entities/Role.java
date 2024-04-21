@@ -1,7 +1,5 @@
 package tn.enicarthage.gestionclub.entities;
 
-import java.util.List;
-
 import javax.persistence.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -14,15 +12,8 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @AllArgsConstructor
 @NoArgsConstructor
-public class Club {
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-	Long id;
-	String nom;
-	String description;
-	String type;
-	String image;
-	@OneToMany(mappedBy = "club")
-	List<Evenement> evenements;
-	@OneToOne
-	User user;
+public class Role {
+	@Id
+	String roleName;
+	String roleDescription;
 }

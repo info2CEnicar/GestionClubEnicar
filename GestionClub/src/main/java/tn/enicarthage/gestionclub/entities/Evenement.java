@@ -3,14 +3,7 @@ package tn.enicarthage.gestionclub.entities;
 import java.util.Date;
 import java.util.List;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
+import javax.persistence.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,6 +20,7 @@ public class Evenement {
 	Long id;
 	String nom;
 	String description;
+	int nbrParticipant;
 	@Temporal(TemporalType.DATE)
 	Date dateEvenement;
 	boolean accepted=false;

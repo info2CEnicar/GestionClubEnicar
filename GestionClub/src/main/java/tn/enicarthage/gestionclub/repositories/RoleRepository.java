@@ -4,10 +4,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-import tn.enicarthage.gestionclub.entities.Utilisateur;
+import tn.enicarthage.gestionclub.entities.Role;
 
 @RepositoryRestResource
 @CrossOrigin("*")
-public interface UtilisteurRepository extends JpaRepository<Utilisateur, Long>{
-	Utilisateur findByEmailAndPassword(String email, String password);
+public interface RoleRepository extends JpaRepository<Role, String>{
+
 }
