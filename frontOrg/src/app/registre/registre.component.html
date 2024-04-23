@@ -1,0 +1,143 @@
+<div class="container" >
+  <div class="d-flex justify-content-center " style="background-color: rgb(191, 191, 191);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  font-family: 'Poppins'; /* Move the font-family to the body */
+  margin: 0; /* Remove default body margin */
+  padding-bottom: 13vh;"> <!-- Add this wrapper -->
+
+  <div class="form-container" style="border-radius: 35px;">
+    <h1>Créer un nouveau compte</h1>
+    <form class="user" (ngSubmit)="(onSubmit)" #organisationForm="ngForm">
+      <div class="row">
+        <div class="col-lg-5" style="margin-right: 20px ;width: 250px">
+          <label for="username">Nom </label>
+          <input
+            type="text"
+            class="form-control"
+            id="username"
+            name="nom"
+            [(ngModel)]="organisation.nom"
+            required
+
+          />
+          <div *ngIf="nom?.touched && nom?.invalid">
+            <small class="text-danger" *ngIf="nom?.errors?.['required']"
+              >Nom est obligatoire</small
+            >
+          </div>
+
+          <label for="username">Nom Responsable</label>
+          <input
+            type="text"
+            id="username"
+            class="form-control"
+
+            name="nomResp"
+            [(ngModel)]="organisation.nomResp"
+            required
+          />
+
+          <label for="username">Description </label>
+          <input
+            type="textArea"
+            id="username"
+            class="form-control"
+
+            name="description"
+            [(ngModel)]="organisation.description"
+            required
+          />
+
+          <label for="type">Type :</label>
+          <select
+            id="type"
+            name="type"
+            style="background-color: rgb(205, 205, 205);border-color: black;"
+
+            [(ngModel)]="organisation.type"
+            required
+          >
+            <option value="club">Club</option>
+            <option value="association">Association</option>
+          </select>
+          <div *ngIf="type?.touched && type?.invalid">
+            <small class="text-danger" *ngIf="type?.errors?.['required']"
+              >Type est obligatoire</small
+            >
+          </div>
+        </div>
+
+        <div class="col-lg-5" style="width: 250px">
+          <label for="email">Adresse email</label>
+          <input
+            type="email"
+            id="email"
+            class="form-control"
+
+            name="email"
+            [(ngModel)]="organisation.email"
+            required
+          />
+          <div *ngIf="email?.touched && email?.invalid">
+            <small class="text-danger" *ngIf="email?.errors?.['required']"
+              >Email est obligatoire</small
+            >
+            <small class="text-danger" *ngIf="email?.errors?.['email']"
+              >Format email</small
+            >
+          </div>
+
+          <label for="password">Mot de passe</label>
+          <input
+            type="password"
+            id="password"
+            class="form-control"
+
+            name="mdp"
+            [(ngModel)]="organisation.mdp"
+            required
+          />
+          <div *ngIf="mdp?.touched && mdp?.invalid">
+            <small class="text-danger" *ngIf="mdp?.errors?.['required']"
+              >Mot de passe est obligatoire</small
+            >
+          </div>
+          <label for="username">Numéro de téléphone</label>
+          <input
+            type="tel"
+            id="username"
+            class="form-control"
+
+            name="tel"
+            [(ngModel)]="organisation.tel"
+            required
+          />
+          <div *ngIf="tel?.touched && tel?.invalid">
+            <small class="text-danger" *ngIf="tel?.errors?.['required']"
+              >Numéro de téléphone est obligatoire</small
+            >
+          </div>
+          <div class="col-lg-15">
+            <label for="logo">Logo :</label>
+            <input
+              type="file"
+              id="logo"
+              name="logo"
+              style="background-color: rgba(255, 255, 255, 0.564)"
+
+              accept="image/*"
+              name="logo"
+              [(ngModel)]="organisation.logo"
+              required
+            />
+          </div>
+        </div>
+      </div>
+
+      <input class="btn btn-outline-secondary" type="submit" (click)="onSubmit()" value="Créer un compte" />
+    </form>
+  </div>
+  </div>
+</div>

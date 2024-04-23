@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .navbar-nav.middle {
+            flex-grow: 1;
+            text-align: center
+        }
+
+        .navbar-nav.middle .nav-link {
+            font-weight: 500;
+            color: rgb(65, 64, 64);
+        }
+
+        .navbar-nav.right {
+            margin-left: auto;
+        }
+
+        /* Style for the logo */
+        .navbar-logo {
+          padding-left: 15px; /* Adjust padding as needed */
+          padding-right: 15px; /* Adjust padding as needed */
+        }
+
+        .navbar-logo img {
+          width: 100px; /* Adjust width as needed */
+            height: auto;
+        }
+
+        /* Adjust size of user image */
+        .img-profile {
+            width: 60px; /* Adjust width as needed */
+            height: 60px; /* Adjust height as needed */
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+        <!-- Logo -->
+        <div class="navbar-logo">
+            <img src="assets/img/enicar.jpg" alt="Logo">
+        </div>
+
+        <!-- Sidebar Toggle (Topbar) -->
+        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+        </button>
+
+        <!-- Middle Navbar -->
+        <ul class="navbar-nav middle">
+            <!-- Nav Items from Sidebar -->
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/acceuil">
+                    <i class="fas fa-fw fa-home"></i>
+                    <span>Accueil</span>
+                </a>
+            </li>
+            <!-- Nav Item - Demandes -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="demandesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-fw fa-tasks"></i>
+                    <span>Organisations</span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="demandesDropdown">
+                  <a class="nav-link" routerLink="/orgsacceptees">
+                    <i class="fas fa-check-circle"></i>
+                        <span>Organisations acceptées</span>
+                    </a>
+                    <a class="nav-link" routerLink="/orgsenattente">
+                      <i class="fas fa-times-circle"></i>
+                        <span>Organisations en attente</span>
+                    </a>
+
+                </div>
+            </li>
+            <!-- Nav Item - Demandes -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="demandesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fas fa-fw fa-tasks"></i>
+                  <span>Demandes de salles</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="demandesDropdown">
+                  <a class="dropdown-item" routerLink="/demande-salle">
+                      <i class="fa fa-check-circle"></i>
+                      <span>Acceptées</span>
+                  </a>
+                  <a class="dropdown-item" routerLink="/demande-salleNC">
+                      <i class="fa fa-list"></i>
+                      <span>En attente</span>
+                  </a>
+                  <a class="dropdown-item" routerLink="/demande-salleRF">
+                      <i class="fa fa-times-circle"></i>
+                      <span>Refusées</span>
+                  </a>
+              </div>
+          </li>
+          <!-- Nav Item - Demandes -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="demandesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-fw fa-tasks"></i>
+                <span>Demandes de matériel</span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="demandesDropdown">
+                <a class="dropdown-item" routerLink="/demande-materiel">
+                    <i class="fa fa-check-circle"></i>
+                    <span>Acceptées</span>
+                </a>
+                <a class="dropdown-item" routerLink="/demande-materielNC">
+                    <i class="fa fa-list"></i>
+                    <span>En attente</span>
+                </a>
+                <a class="dropdown-item" routerLink="/demande-materielRF">
+                    <i class="fa fa-times-circle"></i>
+                    <span>Refusées</span>
+                </a>
+            </div>
+        </li>
+        <!-- Nav Item - Demandes -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="demandesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-fw fa-tasks"></i>
+              <span>Demandes de bus</span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="demandesDropdown">
+              <a class="dropdown-item" routerLink="/demande-bus">
+                  <i class="fa fa-check-circle"></i>
+                  <span>Acceptées</span>
+              </a>
+              <a class="dropdown-item" routerLink="/demande-busNC">
+                  <i class="fa fa-list"></i>
+                  <span>En attente</span>
+              </a>
+              <a class="dropdown-item" routerLink="/demande-busRF">
+                  <i class="fa fa-times-circle"></i>
+                  <span>Refusées</span>
+              </a>
+          </div>
+      </li>
+            <!-- Nav Item - Espace libre -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="espaceLibreDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-fw fa-balance-scale"></i>
+                    <span>Espace libre</span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="espaceLibreDropdown">
+                    <a class="dropdown-item" routerLink="/propositions">
+                        <i class="fa fa-plus-circle"></i>
+                        <span>Propositions</span>
+                    </a>
+                    <a class="dropdown-item" routerLink="/reclamations">
+                        <i class="fa fa-minus-circle"></i>
+                        <span>Réclamations</span>
+                    </a>
+                </div>
+            </li>
+        </ul>
+
+        <!-- Right Navbar -->
+        <ul class="navbar-nav right">
+            <div class="topbar-divider d-none d-sm-block"></div>
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">ADMIN</span>
+                    <img class="img-profile rounded-circle"
+                        src="assets/img/ADMIN.jpg">
+                </a>
+                <!-- Dropdown - User Information -->
+                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                    aria-labelledby="userDropdown">
+                    <a class="dropdown-item" routerLink="">
+                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Déconnexion
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+</body>
+</html>

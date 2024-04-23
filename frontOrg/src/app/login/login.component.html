@@ -1,0 +1,51 @@
+<html>
+  <body>
+    <div class="row justify-content-center">
+      <form
+        class="user"
+        #form="ngForm"
+        autocomplete="off"
+        (submit)="onSubmit(form)"
+      >
+        <div class="loginDiv" id="loginDiv">
+          <h1>Login</h1>
+
+          <div class="inputField">
+            <input
+              type="userName"
+              name="userName"
+              #Username="ngModel"
+              [(ngModel)]="formModel.userName"
+              required
+              id="exampleInputEmail"
+              placeholder="Enter Email Address..."
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="password"
+              matInput
+              placeholder="Your password"
+              #Password="ngModel"
+              name="password"
+              [(ngModel)]="formModel.password"
+              required
+              id="exampleInputPassword"
+              placeholder="Password"
+            />
+          </div>
+
+          <button
+            id="login"
+            class="login btn-outline-primary"
+            type="submit"
+            [disabled]="form.invalid"
+          >
+            Login
+          </button>
+          <a href="" class="registre" routerLink="/registre">Signup</a>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
